@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adisaac Tech — Content Calendar 2026</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050c18;
+            --bg2: #0a1525;
+            --bg3: #0f1e35;
+            --border: rgba(0, 190, 255, 0.12);
+            --border2: rgba(0, 190, 255, 0.3);
+            --accent: #00bfff;
+            --accent2: #0066ff;
+            --gold: #ffb300;
+            --green: #00e676;
+            --purple: #b388ff;
+            --coral: #ff6e40;
+            --text: #e8f0fe;
+            --muted: #5a7a9a;
+            --video: #b388ff;
+            --graphic: #00e676;
+            --carousel: #ffb300;
+            --reel: #ff6e40;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 40% at 10% 0%, rgba(0, 102, 255, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 30% at 90% 100%, rgba(0, 191, 255, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* grid bg */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 190, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 190, 255, 0.025) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            background: rgba(5, 12, 24, 0.92);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(16px);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .logo-slot {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            border: 1.5px dashed var(--border2);
+            background: var(--bg2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+            transition: border-color 0.2s;
+            font-size: 20px;
+        }
+
+        .logo-slot:hover {
+            border-color: var(--accent)
+        }
+
+        .logo-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none
+        }
+
+        #logo-input {
+            display: none
+        }
+
+        .brand-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 900;
+            background: linear-gradient(120deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.01em;
+        }
+
+        .brand-sub {
+            font-size: 10px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 1px
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--accent);
+            border: 1px solid var(--border2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: rgba(0, 191, 255, 0.05);
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--border2);
+            color: var(--accent)
+        }
+
+        .btn-ghost:hover {
+            background: rgba(0, 191, 255, 0.08)
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent2), var(--accent));
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(0, 102, 255, 0.45)
+        }
+
+        .btn-danger {
+            background: rgba(255, 110, 64, 0.12);
+            border: 1px solid rgba(255, 110, 64, 0.3);
+            color: var(--coral)
+        }
+
+        .btn-danger:hover {
+            background: rgba(255, 110, 64, 0.22)
+        }
+
+        /* STATS */
+        .stats {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            background: rgba(5, 12, 24, 0.7);
+            overflow-x: auto;
+        }
+
+        .stat {
+            flex: 1;
+            min-width: 110px;
+            padding: 12px 20px;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .stat:last-child {
+            border-right: none
+        }
+
+        .stat-n {
+            font-family: 'Syne', sans-serif;
+            font-size: 24px;
+            font-weight: 800
+        }
+
+        .stat-l {
+            font-size: 10px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.07em
+        }
+
+        /* CONTROLS */
+        .controls {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 32px;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-row {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .nav-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent)
+        }
+
+        .month-select {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .month-select:focus {
+            border-color: var(--accent)
+        }
+
+        .chips {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap
+        }
+
+        .chip {
+            padding: 5px 13px;
+            border-radius: 20px;
+            border: 1px solid transparent;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .chip-all {
+            border-color: var(--border);
+            color: var(--muted)
+        }
+
+        .chip-all.active,
+        .chip-all:hover {
+            border-color: var(--muted);
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.05)
+        }
+
+        .chip-video {
+            border-color: var(--video);
+            color: var(--video);
+            background: rgba(179, 136, 255, 0.08)
+        }
+
+        .chip-video.active,
+        .chip-video:hover {
+            background: rgba(179, 136, 255, 0.18)
+        }
+
+        .chip-graphic {
+            border-color: var(--graphic);
+            color: var(--graphic);
+            background: rgba(0, 230, 118, 0.08)
+        }
+
+        .chip-graphic.active,
+        .chip-graphic:hover {
+            background: rgba(0, 230, 118, 0.18)
+        }
+
+        .chip-carousel {
+            border-color: var(--carousel);
+            color: var(--carousel);
+            background: rgba(255, 179, 0, 0.08)
+        }
+
+        .chip-carousel.active,
+        .chip-carousel:hover {
+            background: rgba(255, 179, 0, 0.18)
+        }
+
+        .chip-reel {
+            border-color: var(--reel);
+            color: var(--reel);
+            background: rgba(255, 110, 64, 0.08)
+        }
+
+        .chip-reel.active,
+        .chip-reel:hover {
+            background: rgba(255, 110, 64, 0.18)
+        }
+
+        .edit-badge {
+            font-size: 12px;
+            color: var(--green);
+            font-weight: 600;
+            display: none
+        }
+
+        /* CALENDAR */
+        .cal-wrap {
+            position: relative;
+            z-index: 5;
+            padding: 20px 32px 40px
+        }
+
+        .days-header {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+
+        .day-label {
+            text-align: center;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 6px 0;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px
+        }
+
+        .day {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            min-height: 128px;
+            padding: 8px;
+            transition: border-color 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day:hover {
+            border-color: rgba(0, 191, 255, 0.25)
+        }
+
+        .day.empty {
+            background: rgba(5, 12, 24, 0.4);
+            border-color: rgba(0, 191, 255, 0.04);
+            opacity: 0.35
+        }
+
+        .day.today {
+            border-color: var(--accent);
+            background: rgba(0, 191, 255, 0.03);
+        }
+
+        .day.today::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .day.has-post {
+            border-color: rgba(0, 102, 255, 0.3)
+        }
+
+        .day-num {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-num.today-n {
+            color: var(--accent)
+        }
+
+        .add-btn {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            line-height: 1;
+            transition: all 0.2s;
+            opacity: 0;
+        }
+
+        .day:hover .add-btn {
+            opacity: 1
+        }
+
+        .add-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 191, 255, 0.08)
+        }
+
+        .post-card {
+            margin-bottom: 4px;
+            padding: 5px 7px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.1)
+        }
+
+        .post-card.type-video {
+            background: rgba(179, 136, 255, 0.1);
+            border-left: 2px solid var(--video)
+        }
+
+        .post-card.type-graphic {
+            background: rgba(0, 230, 118, 0.1);
+            border-left: 2px solid var(--graphic)
+        }
+
+        .post-card.type-carousel {
+            background: rgba(255, 179, 0, 0.1);
+            border-left: 2px solid var(--carousel)
+        }
+
+        .post-card.type-reel {
+            background: rgba(255, 110, 64, 0.1);
+            border-left: 2px solid var(--reel)
+        }
+
+        .post-type-lbl {
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .type-video .post-type-lbl {
+            color: var(--video)
+        }
+
+        .type-graphic .post-type-lbl {
+            color: var(--graphic)
+        }
+
+        .type-carousel .post-type-lbl {
+            color: var(--carousel)
+        }
+
+        .type-reel .post-type-lbl {
+            color: var(--reel)
+        }
+
+        .post-text {
+            font-size: 10px;
+            color: var(--text);
+            line-height: 1.35;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-plats {
+            display: flex;
+            gap: 2px;
+            margin-top: 3px;
+            flex-wrap: wrap
+        }
+
+        .plat-tag {
+            font-size: 7px;
+            padding: 1px 4px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        /* loading spinner */
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(5, 12, 24, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid var(--border2);
+            border-top-color: var(--accent);
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .loading-text {
+            font-size: 14px;
+            color: var(--muted);
+            font-family: 'DM Mono', monospace
+        }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 12, 24, 0.88);
+            backdrop-filter: blur(10px);
+            z-index: 500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            display: flex
+        }
+
+        .modal {
+            background: var(--bg3);
+            border: 1px solid var(--border2);
+            border-radius: 16px;
+            padding: 28px;
+            width: 460px;
+            max-width: 92vw;
+            position: relative;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
+            animation: modalIn 0.22s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            border-color: var(--coral);
+            color: var(--coral)
+        }
+
+        .modal-ico {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent2), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin: 0 auto 14px;
+        }
+
+        .modal h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .modal-sub {
+            font-size: 12px;
+            color: var(--muted);
+            text-align: center;
+            margin-bottom: 20px
+        }
+
+        .field {
+            margin-bottom: 14px
+        }
+
+        .field label {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 5px;
+        }
+
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            padding: 9px 12px;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            border-color: var(--accent)
+        }
+
+        .field textarea {
+            min-height: 80px;
+            resize: vertical
+        }
+
+        .field select option {
+            background: var(--bg)
+        }
+
+        .pass-err {
+            font-size: 12px;
+            color: var(--coral);
+            text-align: center;
+            margin-bottom: 10px;
+            display: none
+        }
+
+        .pass-err.show {
+            display: block
+        }
+
+        .plat-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap
+        }
+
+        .plat-check {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            color: var(--muted);
+            cursor: pointer;
+            padding: 4px 9px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            transition: all 0.15s;
+            user-select: none;
+        }
+
+        .plat-check input {
+            display: none
+        }
+
+        .plat-check.checked {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 191, 255, 0.08)
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 18px
+        }
+
+        .modal-actions .btn {
+            flex: 1;
+            padding: 10px
+        }
+
+        /* VIEW DAY POPUP CARDS */
+        .vm-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vm-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+        }
+
+        .vm-card.type-video::before {
+            background: var(--video)
+        }
+
+        .vm-card.type-graphic::before {
+            background: var(--graphic)
+        }
+
+        .vm-card.type-carousel::before {
+            background: var(--carousel)
+        }
+
+        .vm-card.type-reel::before {
+            background: var(--reel)
+        }
+
+        .vm-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px
+        }
+
+        .vm-type-badge {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 20px;
+        }
+
+        .vm-card.type-video .vm-type-badge {
+            color: var(--video);
+            background: rgba(179, 136, 255, 0.12);
+            border: 1px solid rgba(179, 136, 255, 0.3)
+        }
+
+        .vm-card.type-graphic .vm-type-badge {
+            color: var(--graphic);
+            background: rgba(0, 230, 118, 0.12);
+            border: 1px solid rgba(0, 230, 118, 0.3)
+        }
+
+        .vm-card.type-carousel .vm-type-badge {
+            color: var(--carousel);
+            background: rgba(255, 179, 0, 0.12);
+            border: 1px solid rgba(255, 179, 0, 0.3)
+        }
+
+        .vm-card.type-reel .vm-type-badge {
+            color: var(--reel);
+            background: rgba(255, 110, 64, 0.12);
+            border: 1px solid rgba(255, 110, 64, 0.3)
+        }
+
+        .vm-status {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--muted)
+        }
+
+        .vm-topic {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px
+        }
+
+        .vm-caption {
+            font-size: 13px;
+            color: #a0b8d0;
+            line-height: 1.6;
+            margin-bottom: 10px
+        }
+
+        .vm-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 6px
+        }
+
+        .vm-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+            font-weight: 700;
+            min-width: 64px
+        }
+
+        .vm-plat-tag {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            background: rgba(0, 191, 255, 0.08);
+            color: var(--accent);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+        }
+
+        .vm-empty {
+            text-align: center;
+            padding: 32px 0;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .vm-empty span {
+            display: block;
+            font-size: 32px;
+            margin-bottom: 8px
+        }
+
+        /* LEGEND */
+        .legend {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            gap: 18px;
+            padding: 12px 32px;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--muted)
+        }
+
+        .legend-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 3px
+        }
+
+        /* FOOTER */
+        .footer {
+            position: relative;
+            z-index: 5;
+            padding: 16px 32px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: var(--muted);
+            font-family: 'DM Mono', monospace;
+        }
+
+        .footer strong {
+            color: var(--accent)
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            background: var(--bg3);
+            border: 1px solid var(--border2);
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 12px 18px;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            transform: translateY(60px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.2)
+            }
+
+            50% {
+                box-shadow: 0 0 0 6px rgba(0, 191, 255, 0)
+            }
+        }
+
+        .day.today {
+            animation: pulse 3s infinite
+        }
+
+        @media(max-width:768px) {
+
+            .header,
+            .cal-wrap,
+            .controls,
+            .legend {
+                padding-left: 14px;
+                padding-right: 14px
+            }
+
+            .day {
+                min-height: 80px;
+                padding: 5px
+            }
+
+            .post-text {
+                display: none
+            }
+
+            .stats {
+                padding: 0 14px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loading -->
+    <div class="loading-overlay" id="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Connecting to Firestore...</div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="brand">
+            <div class="logo-slot" id="logo-slot" onclick="document.getElementById('logo-input').click()"
+                title="Upload logo">
+                🏢
+                <img id="logo-img" alt="logo">
+            </div>
+            <input type="file" id="logo-input" accept="image/*">
+            <div>
+                <div class="brand-name">ADISAAC TECH</div>
+                <div class="brand-sub">Content Command Center</div>
+            </div>
+        </div>
+        <div class="header-right">
+            <span class="badge">2026</span>
+            <button class="btn btn-ghost" onclick="exportCalendar()">Export ↗</button>
+            <button class="btn btn-primary" id="edit-btn" onclick="openLockModal()">🔐 Edit Mode</button>
+        </div>
+    </header>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat"><span class="stat-n" id="s-total" style="color:var(--accent)">—</span><span
+                class="stat-l">Total Posts</span></div>
+        <div class="stat"><span class="stat-n" id="s-video" style="color:var(--video)">—</span><span
+                class="stat-l">Videos</span></div>
+        <div class="stat"><span class="stat-n" id="s-graphic" style="color:var(--graphic)">—</span><span
+                class="stat-l">Graphics</span></div>
+        <div class="stat"><span class="stat-n" id="s-carousel" style="color:var(--carousel)">—</span><span
+                class="stat-l">Carousels</span></div>
+        <div class="stat"><span class="stat-n" id="s-reel" style="color:var(--reel)">—</span><span
+                class="stat-l">Reels</span></div>
+        <div class="stat"><span class="stat-n" id="s-month" style="color:var(--gold)">—</span><span class="stat-l">This
+                Month</span></div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+        <div class="nav-row">
+            <button class="nav-btn" onclick="prevMonth()">‹</button>
+            <select class="month-select" id="month-select" onchange="jumpMonth(this.value)">
+                <option value="0">January</option>
+                <option value="1">February</option>
+                <option value="2">March</option>
+                <option value="3">April</option>
+                <option value="4">May</option>
+                <option value="5">June</option>
+                <option value="6">July</option>
+                <option value="7">August</option>
+                <option value="8">September</option>
+                <option value="9">October</option>
+                <option value="10">November</option>
+                <option value="11">December</option>
+            </select>
+            <button class="nav-btn" onclick="nextMonth()">›</button>
+        </div>
+        <div class="chips">
+            <button class="chip chip-all active" onclick="setFilter('all',this)">All</button>
+            <button class="chip chip-video" onclick="setFilter('Video',this)">▶ Video</button>
+            <button class="chip chip-graphic" onclick="setFilter('Graphic',this)">◆ Graphic</button>
+            <button class="chip chip-carousel" onclick="setFilter('Carousel',this)">⊞ Carousel</button>
+            <button class="chip chip-reel" onclick="setFilter('Reel',this)">◉ Reel</button>
+        </div>
+        <div class="edit-badge" id="edit-badge">✓ Edit Mode Active</div>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="cal-wrap">
+        <div class="days-header">
+            <div class="day-label">Sun</div>
+            <div class="day-label">Mon</div>
+            <div class="day-label">Tue</div>
+            <div class="day-label">Wed</div>
+            <div class="day-label">Thu</div>
+            <div class="day-label">Fri</div>
+            <div class="day-label">Sat</div>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+    </div>
+
+    <!-- LEGEND -->
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-dot" style="background:var(--video)"></div>Video
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot" style="background:var(--graphic)"></div>Graphic
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot" style="background:var(--carousel)"></div>Carousel
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot" style="background:var(--reel)"></div>Reel
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot" style="background:var(--accent);border-radius:50%"></div>Today
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <span>Adisaac Tech Innovations Ltd · Content Calendar 2026</span>
+        <span>Powered by <strong>Firebase Firestore</strong></span>
+    </div>
+
+    <!-- PASSWORD MODAL -->
+    <div class="modal-overlay" id="lock-modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('lock-modal')">✕</button>
+            <div class="modal-ico">🔐</div>
+            <h2>Edit Mode</h2>
+            <p class="modal-sub">Enter your password to unlock the calendar for editing.</p>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" id="pw-input" placeholder="Enter password"
+                    onkeydown="if(event.key==='Enter')checkPw()">
+            </div>
+            <div class="pass-err" id="pw-err">Incorrect password. Try again.</div>
+            <div class="modal-actions">
+                <button class="btn btn-ghost" onclick="closeModal('lock-modal')">Cancel</button>
+                <button class="btn btn-primary" onclick="checkPw()">Unlock ›</button>
+            </div>
+            <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:14px">Default password: <strong
+                    style="color:var(--accent);font-family:'DM Mono',monospace">adisaac2026</strong></p>
+        </div>
+    </div>
+
+    <!-- VIEW DAY MODAL (locked mode) -->
+    <div class="modal-overlay" id="view-modal">
+        <div class="modal" style="width:520px;max-height:88vh;overflow-y:auto;">
+            <button class="modal-close" onclick="closeModal('view-modal')">✕</button>
+            <div class="modal-ico" id="vm-ico">📅</div>
+            <h2 id="vm-date-title">May 10, 2026</h2>
+            <p class="modal-sub" id="vm-count"></p>
+            <div id="vm-posts"></div>
+            <div class="modal-actions" style="margin-top:16px">
+                <button class="btn btn-ghost" onclick="closeModal('view-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD/EDIT POST MODAL -->
+    <div class="modal-overlay" id="post-modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal('post-modal')">✕</button>
+            <div class="modal-ico" id="pm-ico">✨</div>
+            <h2 id="pm-title">Add Post</h2>
+            <p class="modal-sub" id="pm-date"></p>
+
+            <div class="field">
+                <label>Content Type</label>
+                <select id="pm-type">
+                    <option value="Video">Video (Text Animation / Screen Recording)</option>
+                    <option value="Graphic">Graphic (Static Image)</option>
+                    <option value="Carousel">Carousel (Swipeable)</option>
+                    <option value="Reel">Reel (Short Video)</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Topic / Hook</label>
+                <input type="text" id="pm-topic" placeholder="e.g. Why your hotel needs a website">
+            </div>
+            <div class="field">
+                <label>Caption / Script</label>
+                <textarea id="pm-caption" placeholder="Write the full caption or script idea here..."></textarea>
+            </div>
+            <div class="field">
+                <label>Platforms</label>
+                <div class="plat-row" id="plat-row">
+                    <label class="plat-check"><input type="checkbox" value="IG">Instagram</label>
+                    <label class="plat-check"><input type="checkbox" value="FB">Facebook</label>
+                    <label class="plat-check"><input type="checkbox" value="TikTok">TikTok</label>
+                    <label class="plat-check"><input type="checkbox" value="LI">LinkedIn</label>
+                    <label class="plat-check"><input type="checkbox" value="WA">WhatsApp</label>
+                    <label class="plat-check"><input type="checkbox" value="X">Twitter/X</label>
+                </div>
+            </div>
+            <div class="field">
+                <label>Status</label>
+                <select id="pm-status">
+                    <option value="planned">📋 Planned</option>
+                    <option value="ready">✅ Ready to Post</option>
+                    <option value="posted">🚀 Posted</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-danger" id="del-btn" onclick="deletePost()" style="display:none">Delete</button>
+                <button class="btn btn-ghost" onclick="closeModal('post-modal')">Cancel</button>
+                <button class="btn btn-primary" onclick="savePost()">Save Post ›</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        // ── Firebase (Modular SDK v12) ─────────────────────────────
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
+        import {
+            getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc, doc, query, orderBy
+        } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDAVWmNeZx-mHJHPJ6S66xmKo8DS_n_ItM",
+            authDomain: "adisaactech.firebaseapp.com",
+            projectId: "adisaactech",
+            storageBucket: "adisaactech.firebasestorage.app",
+            messagingSenderId: "707808268082",
+            appId: "1:707808268082:web:e63d693ddf381814d9912b",
+            measurementId: "G-GG4SZFRLRR"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+        // ── GLOBALS ───────────────────────────────────────────────
+        const PASS = "adisaac2026";
+        const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let isEditMode = false;
+        let currentYear = 2026;
+        let currentMonth = 4; // May
+        let activeFilter = "all";
+        let editingDocId = null;
+        let editingDate = null;
+
+        // calendarData: { "2026-05-10": [{...firestore doc with id}] }
+        let calendarData = {};
+
+        // ── FIRESTORE HELPERS ────────────────────────────────────
+        async function loadAllPosts() {
+            const snap = await getDocs(query(collection(db, "posts"), orderBy("date")));
+            calendarData = {};
+            snap.forEach(docSnap => {
+                const d = docSnap.data();
+                const key = d.date;
+                if (!calendarData[key]) calendarData[key] = [];
+                calendarData[key].push({ ...d, _id: docSnap.id });
+            });
+        }
+
+        async function addPost(data) {
+            const ref = await addDoc(collection(db, "posts"), data);
+            return ref.id;
+        }
+
+        async function updatePost(docId, data) {
+            await updateDoc(doc(db, "posts", docId), data);
+        }
+
+        async function deletePostFS(docId) {
+            await deleteDoc(doc(db, "posts", docId));
+        }
+
+        // ── SEED DATA (runs once if Firestore is empty) ──────────
+        const SEED = [
+            { date: "2026-05-10", type: "Graphic", topic: "Brand intro", caption: "We don't just build websites — we build business tools. Adisaac Tech is here to help your brand win online.", platforms: ["IG", "FB", "LI"], status: "planned" },
+            { date: "2026-05-11", type: "Video", topic: "Text animation tip", caption: "3 reasons your website is losing you customers — and how to fix them.", platforms: ["IG", "TikTok"], status: "planned" },
+            { date: "2026-05-12", type: "Carousel", topic: "Hotel pitch", caption: "Is your hotel losing ₦700k/month to Booking.com? Swipe to see how a direct booking site changes that.", platforms: ["IG", "FB"], status: "planned" },
+            { date: "2026-05-13", type: "Graphic", topic: "Social proof", caption: "Another Benin City business just went online. If your competitor has a website and you don't — they're winning.", platforms: ["IG", "FB", "LI"], status: "planned" },
+            { date: "2026-05-14", type: "Video", topic: "Before/after mockup", caption: "Watch us transform a local business' old-looking website into a modern, converting machine.", platforms: ["IG", "TikTok"], status: "planned" },
+            { date: "2026-05-15", type: "Graphic", topic: "Weekend promo", caption: "Weekend special: Free website audit. We'll tell you exactly what's costing you customers. DM us 'AUDIT'", platforms: ["IG", "FB", "WA"], status: "planned" },
+            { date: "2026-05-16", type: "Reel", topic: "Testimonial reel", caption: "What our clients say about working with Adisaac Tech — results in a 30-second animated reel.", platforms: ["IG", "FB"], status: "planned" },
+            { date: "2026-05-18", type: "Carousel", topic: "Campus program launch", caption: "Attention student orgs! Get a professional website for FREE — just pay for domain. Swipe to see how.", platforms: ["IG", "FB", "TikTok"], status: "planned" },
+            { date: "2026-05-19", type: "Video", topic: "Website myths", caption: "Myth: 'My business is too small for a website.' Here's why that mindset is costing Nigerian SMEs millions.", platforms: ["IG", "TikTok"], status: "planned" },
+            { date: "2026-05-20", type: "Graphic", topic: "Stats post", caption: "73% of customers research online before buying. If you're not online, you don't exist to them.", platforms: ["IG", "LI", "FB"], status: "planned" },
+            { date: "2026-05-21", type: "Video", topic: "Behind-the-scenes", caption: "We built this hotel website in 5 days. Behind-the-scenes screen recording walkthrough.", platforms: ["IG", "TikTok"], status: "planned" },
+            { date: "2026-05-22", type: "Carousel", topic: "Pricing breakdown", caption: "What does a website actually cost? We break it down honestly — starter to enterprise. No hidden fees.", platforms: ["IG", "FB"], status: "planned" },
+            { date: "2026-05-23", type: "Graphic", topic: "Weekend motivational", caption: "Your competitors aren't waiting. Your website should be working while you sleep. Let's build it.", platforms: ["IG", "WA"], status: "planned" },
+            { date: "2026-05-25", type: "Video", topic: "Retainer explainer", caption: "What is a maintenance retainer and why every small business needs one — animated explainer.", platforms: ["IG", "TikTok", "FB"], status: "planned" },
+            { date: "2026-05-26", type: "Graphic", topic: "Niche: Restaurants", caption: "Attention Benin City restaurant owners: your food photos deserve a website as delicious as your meals.", platforms: ["IG", "FB"], status: "planned" },
+            { date: "2026-05-27", type: "Video", topic: "FAQ video", caption: "'How long does it take to build my website?' We answer your top 5 questions in under 60 seconds.", platforms: ["IG", "TikTok"], status: "planned" },
+            { date: "2026-05-28", type: "Graphic", topic: "Niche: Law firms", caption: "Does your law firm have a website? Your clients are Googling you before they call. Make the first impression count.", platforms: ["IG", "LI", "FB"], status: "planned" },
+            { date: "2026-05-29", type: "Carousel", topic: "Month wrap-up", caption: "Here's everything Adisaac Tech built in May — real projects, real results. Swipe to see our work.", platforms: ["IG", "FB", "LI"], status: "planned" },
+            { date: "2026-05-30", type: "Reel", topic: "June teaser", caption: "Something big is coming to Adisaac Tech in June... Stay tuned.", platforms: ["IG", "TikTok", "FB"], status: "planned" },
+            { date: "2026-05-31", type: "Graphic", topic: "CTA close", caption: "June slots are almost full. If you want a website that actually works — reach out today.", platforms: ["IG", "FB", "WA"], status: "planned" },
+        ];
+
+        async function seedIfEmpty() {
+            const snap = await getDocs(collection(db, "posts"));
+            if (snap.empty) {
+                showToast("Seeding May posts to Firestore...");
+                for (const p of SEED) { await addDoc(collection(db, "posts"), p); }
+                showToast("✓ 20 posts seeded!");
+            }
+        }
+
+        // ── INIT ─────────────────────────────────────────────────
+        async function init() {
+            try {
+                await seedIfEmpty();
+                await loadAllPosts();
+                hideLoading();
+                renderCal();
+                loadLogo();
+                setupPlatClicks();
+                setupLogoUpload();
+                document.getElementById('month-select').value = currentMonth;
+            } catch (e) {
+                console.error(e);
+                document.querySelector('.loading-text').textContent = "⚠️ Firestore error — check console";
+            }
+        }
+        init();
+
+        // ── RENDER ────────────────────────────────────────────────
+        function renderCal() {
+            const grid = document.getElementById('cal-grid');
+            grid.innerHTML = '';
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const today = new Date();
+
+            for (let i = 0; i < firstDay; i++) {
+                const e = document.createElement('div');
+                e.className = 'day empty';
+                grid.appendChild(e);
+            }
+
+            for (let d = 1; d <= daysInMonth; d++) {
+                const ds = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+                const allPosts = calendarData[ds] || [];
+                const posts = allPosts.filter(p => activeFilter === 'all' || p.type === activeFilter);
+                const isToday = today.getFullYear() === currentYear && today.getMonth() === currentMonth && today.getDate() === d;
+
+                const cell = document.createElement('div');
+                cell.className = `day${isToday ? ' today' : ''}${allPosts.length ? ' has-post' : ''}`;
+
+                const numRow = document.createElement('div');
+                numRow.className = 'day-num' + (isToday ? ' today-n' : '');
+                numRow.innerHTML = `<span>${d}</span>`;
+
+                if (isEditMode) {
+                    const ab = document.createElement('button');
+                    ab.className = 'add-btn';
+                    ab.textContent = '+';
+                    ab.title = 'Add post';
+                    ab.onclick = e => { e.stopPropagation(); openPostModal(ds, null); };
+                    numRow.appendChild(ab);
+                }
+                cell.appendChild(numRow);
+
+                // Locked mode: clicking the cell or any card opens the day view popup
+                if (!isEditMode && allPosts.length > 0) {
+                    cell.style.cursor = 'pointer';
+                    cell.title = 'Click to view posts';
+                    cell.onclick = () => openDayView(ds);
+                }
+
+                posts.forEach(post => {
+                    const card = document.createElement('div');
+                    const t = (post.type || '').toLowerCase();
+                    card.className = `post-card type-${t}`;
+                    const st = post.status === 'posted' ? '🚀 ' : post.status === 'ready' ? '✅ ' : '';
+                    card.innerHTML = `
+        <div class="post-type-lbl">${post.type || ''}</div>
+        <div class="post-text">${st}${post.caption || ''}</div>
+        <div class="post-plats">${(post.platforms || []).map(p => `<span class="plat-tag">${p}</span>`).join('')}</div>`;
+                    if (isEditMode) {
+                        card.onclick = e => { e.stopPropagation(); openPostModal(ds, post._id); };
+                    } else {
+                        card.onclick = e => { e.stopPropagation(); openDayView(ds); };
+                    }
+                    cell.appendChild(card);
+                });
+
+                grid.appendChild(cell);
+            }
+
+            document.getElementById('month-select').value = currentMonth;
+            updateStats();
+        }
+
+        function updateStats() {
+            let total = 0, video = 0, graphic = 0, carousel = 0, reel = 0, month = 0;
+            Object.entries(calendarData).forEach(([date, posts]) => {
+                posts.forEach(p => {
+                    total++;
+                    if (p.type === 'Video') video++;
+                    if (p.type === 'Graphic') graphic++;
+                    if (p.type === 'Carousel') carousel++;
+                    if (p.type === 'Reel') reel++;
+                    const d = new Date(date);
+                    if (d.getMonth() === currentMonth && d.getFullYear() === currentYear) month++;
+                });
+            });
+            document.getElementById('s-total').textContent = total;
+            document.getElementById('s-video').textContent = video;
+            document.getElementById('s-graphic').textContent = graphic;
+            document.getElementById('s-carousel').textContent = carousel;
+            document.getElementById('s-reel').textContent = reel;
+            document.getElementById('s-month').textContent = month;
+        }
+
+        // ── NAV ───────────────────────────────────────────────────
+        window.prevMonth = () => { if (currentMonth === 0) { currentMonth = 11; currentYear--; } else currentMonth--; renderCal(); }
+        window.nextMonth = () => { if (currentMonth === 11) { currentMonth = 0; currentYear++; } else currentMonth++; renderCal(); }
+        window.jumpMonth = v => { currentMonth = parseInt(v); renderCal(); }
+        window.setFilter = (f, btn) => {
+            activeFilter = f;
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            btn.classList.add('active');
+            renderCal();
+        }
+
+        // ── PASSWORD ──────────────────────────────────────────────
+        window.openLockModal = () => {
+            if (isEditMode) {
+                isEditMode = false;
+                document.getElementById('edit-badge').style.display = 'none';
+                document.getElementById('edit-btn').textContent = '🔐 Edit Mode';
+                renderCal(); return;
+            }
+            document.getElementById('pw-err').classList.remove('show');
+            document.getElementById('pw-input').value = '';
+            openModal('lock-modal');
+            setTimeout(() => document.getElementById('pw-input').focus(), 100);
+        }
+        window.checkPw = () => {
+            if (document.getElementById('pw-input').value === PASS) {
+                isEditMode = true;
+                document.getElementById('edit-badge').style.display = 'block';
+                document.getElementById('edit-btn').textContent = '🔒 Lock';
+                closeModal('lock-modal');
+                renderCal();
+                showToast('✓ Edit mode unlocked');
+            } else {
+                document.getElementById('pw-err').classList.add('show');
+                document.getElementById('pw-input').value = '';
+                document.getElementById('pw-input').focus();
+            }
+        }
+
+        // ── POST MODAL ────────────────────────────────────────────
+        window.openPostModal = (dateStr, docId) => {
+            editingDate = dateStr;
+            editingDocId = docId;
+            const d = new Date(dateStr + 'T12:00:00');
+            document.getElementById('pm-date').textContent = `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+            document.querySelectorAll('.plat-check').forEach(c => { c.classList.remove('checked'); c.querySelector('input').checked = false; });
+
+            if (docId) {
+                const allPosts = calendarData[dateStr] || [];
+                const post = allPosts.find(p => p._id === docId);
+                if (post) {
+                    document.getElementById('pm-title').textContent = 'Edit Post';
+                    document.getElementById('pm-ico').textContent = '✏️';
+                    document.getElementById('pm-type').value = post.type || 'Graphic';
+                    document.getElementById('pm-topic').value = post.topic || '';
+                    document.getElementById('pm-caption').value = post.caption || '';
+                    document.getElementById('pm-status').value = post.status || 'planned';
+                    (post.platforms || []).forEach(pl => {
+                        document.querySelectorAll('.plat-check').forEach(c => {
+                            if (c.querySelector('input').value === pl) { c.classList.add('checked'); c.querySelector('input').checked = true; }
+                        });
+                    });
+                    document.getElementById('del-btn').style.display = 'block';
+                }
+            } else {
+                document.getElementById('pm-title').textContent = 'Add Post';
+                document.getElementById('pm-ico').textContent = '✨';
+                document.getElementById('pm-type').value = 'Graphic';
+                document.getElementById('pm-topic').value = '';
+                document.getElementById('pm-caption').value = '';
+                document.getElementById('pm-status').value = 'planned';
+                document.getElementById('del-btn').style.display = 'none';
+            }
+            openModal('post-modal');
+        }
+
+        window.savePost = async () => {
+            const type = document.getElementById('pm-type').value;
+            const topic = document.getElementById('pm-topic').value.trim();
+            const caption = document.getElementById('pm-caption').value.trim();
+            const status = document.getElementById('pm-status').value;
+            const platforms = Array.from(document.querySelectorAll('.plat-check.checked')).map(c => c.querySelector('input').value);
+            if (!caption) { alert('Please add a caption or script.'); return; }
+
+            const data = { date: editingDate, type, topic, caption, platforms, status };
+            showLoading('Saving...');
+            try {
+                if (editingDocId) {
+                    await updatePost(editingDocId, data);
+                    showToast('✓ Post updated');
+                } else {
+                    await addPost(data);
+                    showToast('✓ Post added');
+                }
+                await loadAllPosts();
+                closeModal('post-modal');
+                renderCal();
+            } catch (e) {
+                console.error(e);
+                showToast('⚠️ Save failed — check console');
+            }
+            hideLoading();
+        }
+
+        window.deletePost = async () => {
+            if (!confirm('Delete this post from Firestore?')) return;
+            showLoading('Deleting...');
+            try {
+                await deletePostFS(editingDocId);
+                await loadAllPosts();
+                closeModal('post-modal');
+                renderCal();
+                showToast('🗑 Post deleted');
+            } catch (e) {
+                console.error(e);
+                showToast('⚠️ Delete failed');
+            }
+            hideLoading();
+        }
+
+        // ── PLATFORM CHECKBOXES ───────────────────────────────────
+        function setupPlatClicks() {
+            document.querySelectorAll('.plat-check').forEach(label => {
+                label.addEventListener('click', () => {
+                    setTimeout(() => {
+                        const inp = label.querySelector('input');
+                        label.classList.toggle('checked', inp.checked);
+                    }, 0);
+                });
+            });
+        }
+
+        // ── LOGO ──────────────────────────────────────────────────
+        function setupLogoUpload() {
+            document.getElementById('logo-input').onchange = e => {
+                const f = e.target.files[0]; if (!f) return;
+                const r = new FileReader();
+                r.onload = ev => {
+                    const img = document.getElementById('logo-img');
+                    img.src = ev.target.result; img.style.display = 'block';
+                    document.getElementById('logo-slot').innerHTML = '';
+                    document.getElementById('logo-slot').appendChild(img);
+                    localStorage.setItem('adisaac_logo', ev.target.result);
+                };
+                r.readAsDataURL(f);
+            };
+        }
+        function loadLogo() {
+            const s = localStorage.getItem('adisaac_logo');
+            if (s) {
+                const img = document.getElementById('logo-img');
+                img.src = s; img.style.display = 'block';
+                document.getElementById('logo-slot').innerHTML = '';
+                document.getElementById('logo-slot').appendChild(img);
+            }
+        }
+
+        // ── EXPORT ────────────────────────────────────────────────
+        window.exportCalendar = () => {
+            let txt = 'ADISAAC TECH INNOVATIONS LTD\nCONTENT CALENDAR 2026\n' + '='.repeat(50) + '\n\n';
+            const sorted = Object.keys(calendarData).sort();
+            let lastM = '';
+            sorted.forEach(date => {
+                const d = new Date(date + 'T12:00:00');
+                const ml = `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+                if (ml !== lastM) { txt += `\n── ${ml.toUpperCase()} ──\n\n`; lastM = ml; }
+                calendarData[date].forEach(p => {
+                    txt += `${date} | ${p.type} | ${p.status || 'planned'}\nTopic: ${p.topic || '(none)'}\nCaption: ${p.caption}\nPlatforms: ${(p.platforms || []).join(', ')}\n\n`;
+                });
+            });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(new Blob([txt], { type: 'text/plain' }));
+            a.download = 'adisaac-content-calendar-2026.txt';
+            a.click();
+            showToast('✓ Calendar exported');
+        }
+
+
+        // ── DAY VIEW POPUP (locked mode) ─────────────────────────
+        window.openDayView = (dateStr) => {
+            const allPosts = calendarData[dateStr] || [];
+            const d = new Date(dateStr + 'T12:00:00');
+            const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const dayName = dayNames[d.getDay()];
+            const label = `${dayName}, ${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+
+            document.getElementById('vm-date-title').textContent = label;
+            document.getElementById('vm-count').textContent =
+                allPosts.length === 0 ? 'No posts scheduled'
+                    : allPosts.length === 1 ? '1 post scheduled'
+                        : `${allPosts.length} posts scheduled`;
+
+            // Choose icon based on types present
+            const types = [...new Set(allPosts.map(p => p.type))];
+            const icons = { Video: '▶', Graphic: '◆', Carousel: '⊞', Reel: '◉' };
+            document.getElementById('vm-ico').textContent =
+                types.length === 1 ? (icons[types[0]] || '📅') : '📅';
+
+            const container = document.getElementById('vm-posts');
+            container.innerHTML = '';
+
+            if (allPosts.length === 0) {
+                container.innerHTML = `<div class="vm-empty"><span>📭</span>No posts for this day yet.</div>`;
+            } else {
+                allPosts.forEach((post, i) => {
+                    const t = (post.type || 'graphic').toLowerCase();
+                    const statusMap = { posted: '🚀 Posted', ready: '✅ Ready to Post', planned: '📋 Planned' };
+                    const statusLabel = statusMap[post.status] || '📋 Planned';
+                    const platHtml = (post.platforms || []).map(p => `<span class="vm-plat-tag">${p}</span>`).join('');
+                    const div = document.createElement('div');
+                    div.className = `vm-card type-${t}`;
+                    div.innerHTML = `
+        <div class="vm-card-header">
+          <span class="vm-type-badge">${post.type || 'Post'}</span>
+          <span class="vm-status">${statusLabel}</span>
+        </div>
+        <div class="vm-topic">${post.topic || '(No topic)'}</div>
+        <div class="vm-caption">${post.caption || ''}</div>
+        ${platHtml ? `<div class="vm-row"><span class="vm-label">Platforms</span>${platHtml}</div>` : ''}
+      `;
+                    container.appendChild(div);
+                });
+            }
+
+            openModal('view-modal');
+        }
+
+        // ── MODAL HELPERS ─────────────────────────────────────────
+        window.openModal = id => document.getElementById(id).classList.add('open');
+        window.closeModal = id => document.getElementById(id).classList.remove('open');
+
+        // ── LOADING / TOAST ───────────────────────────────────────
+        function showLoading(msg) {
+            document.getElementById('loading').style.display = 'flex';
+            document.querySelector('.loading-text').textContent = msg || 'Loading...';
+        }
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        let toastTimer;
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+        }
+
+        // ── CLOSE MODALS ON OVERLAY CLICK ────────────────────────
+        document.querySelectorAll('.modal-overlay').forEach(o => {
+            o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Adisaac Tech — Seed Firestore</title>
+<style>
+  body { font-family: monospace; background: #050c18; color: #e8f0fe; padding: 32px; }
+  h2 { color: #00bfff; margin-bottom: 16px; }
+  button {
+    padding: 14px 32px; font-size: 16px; font-weight: 700;
+    background: linear-gradient(135deg, #0066ff, #00bfff);
+    color: #fff; border: none; border-radius: 10px; cursor: pointer;
+    margin-bottom: 24px;
+  }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  #log { white-space: pre-wrap; font-size: 13px; line-height: 1.7; }
+  .ok  { color: #00e676; }
+  .err { color: #ff6e40; }
+  .info{ color: #ffb300; }
+</style>
+</head>
+<body>
+<h2>🔥 Adisaac Tech — Firestore Seed Script</h2>
+<p style="color:#5a7a9a;margin-bottom:20px">Click the button below to insert all 22 May 2026 posts into Firestore.</p>
+<button id="run-btn" onclick="runSeed()">▶ Insert All Posts Now</button>
+<div id="log"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc }
+  from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDAVWmNeZx-mHJHPJ6S66xmKo8DS_n_ItM",
+  authDomain: "adisaactech.firebaseapp.com",
+  projectId: "adisaactech",
+  storageBucket: "adisaactech.firebasestorage.app",
+  messagingSenderId: "707808268082",
+  appId: "1:707808268082:web:e63d693ddf381814d9912b",
+  measurementId: "G-GG4SZFRLRR"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const POSTS = [
+  // ── WEEK 1 ───────────────────────────────────────────────
+  {
+    date: "2026-05-10", type: "Graphic", topic: "Brand intro",
+    caption: "We don't just build websites — we build business tools. Adisaac Tech is here to help your brand win online.",
+    platforms: ["IG", "FB", "LI"], status: "planned"
+  },
+  {
+    date: "2026-05-11", type: "Video", topic: "Text animation tip",
+    caption: "3 reasons your website is losing you customers (and how to fix them) — no filming needed, just text + music.",
+    platforms: ["IG Reels", "TikTok"], status: "planned"
+  },
+  {
+    date: "2026-05-12", type: "Carousel", topic: "Hotel pitch",
+    caption: "Is your hotel losing ₦700k/month to Booking.com? Swipe to see how a direct booking site changes that.",
+    platforms: ["IG", "FB"], status: "planned"
+  },
+  {
+    date: "2026-05-13", type: "Graphic", topic: "Social proof",
+    caption: "Another business in Benin City just went online. If your competitor has a website and you don't — they're winning.",
+    platforms: ["IG", "FB", "LI"], status: "planned"
+  },
+  {
+    date: "2026-05-14", type: "Video", topic: "Before/after mockup",
+    caption: "Watch us transform a local business' old-looking website into a modern, converting machine. (No camera needed)",
+    platforms: ["IG Reels", "TikTok"], status: "planned"
+  },
+  {
+    date: "2026-05-15", type: "Graphic", topic: "Weekend promo",
+    caption: "Weekend special: Get a FREE website audit. We'll tell you exactly what's costing you customers. DM us 'AUDIT'",
+    platforms: ["IG", "FB", "WhatsApp"], status: "planned"
+  },
+  {
+    date: "2026-05-16", type: "Video", topic: "Testimonial reel",
+    caption: "What our clients say about working with Adisaac Tech — client results in a 30-second animated reel.",
+    platforms: ["IG Reels", "FB"], status: "planned"
+  },
+  // ── WEEK 2 ───────────────────────────────────────────────
+  {
+    date: "2026-05-18", type: "Carousel", topic: "Campus program launch",
+    caption: "Attention student orgs! Get a professional website for FREE — just pay for domain. Swipe to see how.",
+    platforms: ["IG", "FB", "TikTok"], status: "planned"
+  },
+  {
+    date: "2026-05-19", type: "Video", topic: "Website myths",
+    caption: "Myth: 'My business is too small for a website.' Here's why that mindset is costing Nigerian SMEs millions.",
+    platforms: ["IG Reels", "TikTok"], status: "planned"
+  },
+  {
+    date: "2026-05-20", type: "Graphic", topic: "Stats post",
+    caption: "73% of customers research online before buying. If you're not online, you don't exist to them.",
+    platforms: ["IG", "LI", "FB"], status: "planned"
+  },
+  {
+    date: "2026-05-21", type: "Video", topic: "Screen recording tip",
+    caption: "We built this hotel website in 5 days. Here's a behind-the-scenes look — using screen recording only.",
+    platforms: ["IG Reels", "TikTok"], status: "planned"
+  },
+  {
+    date: "2026-05-22", type: "Carousel", topic: "Pricing breakdown",
+    caption: "What does a website actually cost? We break it down honestly — starter to enterprise. No hidden fees.",
+    platforms: ["IG", "FB"], status: "planned"
+  },
+  {
+    date: "2026-05-23", type: "Graphic", topic: "Weekend motivational",
+    caption: "Your competitors aren't waiting. Your website should be working while you sleep. Let's build it.",
+    platforms: ["IG", "WhatsApp"], status: "planned"
+  },
+  // ── WEEK 3 ───────────────────────────────────────────────
+  {
+    date: "2026-05-25", type: "Video", topic: "Text motion explainer",
+    caption: "What is a 'maintenance retainer' and why every small business needs one — animated explainer, no camera.",
+    platforms: ["IG Reels", "TikTok", "FB"], status: "planned"
+  },
+  {
+    date: "2026-05-26", type: "Graphic", topic: "Niche: Restaurants",
+    caption: "Attention Benin City restaurant owners: your food photos deserve a website as delicious as your meals.",
+    platforms: ["IG", "FB"], status: "planned"
+  },
+  {
+    date: "2026-05-27", type: "Video", topic: "FAQ video",
+    caption: "'How long does it take to build my website?' We answer your top 5 questions in under 60 seconds.",
+    platforms: ["IG Reels", "TikTok"], status: "planned"
+  },
+  {
+    date: "2026-05-28", type: "Graphic", topic: "Niche: Law firms",
+    caption: "Does your law firm have a website? Your clients are Googling you before they call. Make the first impression count.",
+    platforms: ["IG", "LI", "FB"], status: "planned"
+  },
+  {
+    date: "2026-05-29", type: "Carousel", topic: "Month wrap-up",
+    caption: "Here's everything Adisaac Tech built in May — real projects, real results. Swipe to see our work.",
+    platforms: ["IG", "FB", "LI"], status: "planned"
+  },
+  {
+    date: "2026-05-30", type: "Video", topic: "June teaser",
+    caption: "Something big is coming to Adisaac Tech in June... Stay tuned. (Text animation teaser, no filming)",
+    platforms: ["IG Reels", "TikTok", "FB"], status: "planned"
+  },
+  {
+    date: "2026-05-31", type: "Graphic", topic: "CTA close",
+    caption: "June slots are almost full. If you want a website that actually works for your business — reach out today.",
+    platforms: ["IG", "FB", "WhatsApp"], status: "planned"
+  },
+];
+
+const log = document.getElementById('log');
+function print(msg, cls='') {
+  const span = document.createElement('span');
+  span.className = cls;
+  span.textContent = msg + '\n';
+  log.appendChild(span);
+}
+
+window.runSeed = async function() {
+  const btn = document.getElementById('run-btn');
+  btn.disabled = true;
+  log.innerHTML = '';
+
+  print('🔍 Checking existing posts...', 'info');
+  const existing = await getDocs(collection(db, 'posts'));
+  if (!existing.empty) {
+    print(`⚠️  Found ${existing.size} existing post(s). Clearing them first...`, 'info');
+    for (const d of existing.docs) {
+      await deleteDoc(doc(db, 'posts', d.id));
+    }
+    print('✓ Cleared existing posts.\n', 'ok');
+  }
+
+  print(`📦 Inserting ${POSTS.length} posts...\n`, 'info');
+
+  let count = 0;
+  for (const post of POSTS) {
+    try {
+      const ref = await addDoc(collection(db, 'posts'), post);
+      count++;
+      print(`✓ [${count}/${POSTS.length}] ${post.date} · ${post.type} · "${post.topic}" → ID: ${ref.id}`, 'ok');
+    } catch(e) {
+      print(`✗ FAILED: ${post.date} · ${post.topic} — ${e.message}`, 'err');
+    }
+  }
+
+  print(`\n🎉 Done! ${count} posts inserted into Firestore.`, 'info');
+  print('You can now open your content calendar. All data is live!', 'info');
+  btn.textContent = '✓ Done!';
+}
+</script>
+</body>
+</html>
